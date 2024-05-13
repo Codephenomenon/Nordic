@@ -1,0 +1,48 @@
+@keyframes left-fly-in {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes top-fly-in {
+  0% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes right-fly-in {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes text-fade-in {
+  0% {
+    opacity: 0;
+    margin-top: 10px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@keyframes shield-fly {
+  0% {
+    transform: translate(-20rem,  -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, -50%);
+    opacity: 1;
+  }
+}

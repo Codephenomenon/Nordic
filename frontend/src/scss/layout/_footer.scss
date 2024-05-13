@@ -1,0 +1,69 @@
+footer {
+  width: 100%;
+  height: 20rem;
+  background-color: $primary-color;
+
+  .row {
+    width: 100%;
+    height: 20rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .footer-box {
+      width: 20%;
+      padding: 3rem;
+      text-align: center;
+      color: $white;
+
+      &-header {
+        text-transform: uppercase;
+        font-size: 2rem;
+        padding: 3px;
+      }
+
+      &-span {
+        font-size: 1.1rem;
+        font-weight: 300;
+        padding: 2px;
+        @include respond(phone) {
+          font-size: 0.8rem;
+        }
+      }
+
+      &-list {
+        list-style: none;
+
+        &-item {
+          font-size: 1.3rem;
+          padding: 2px;
+          transition: all 0.3s ease;
+          &:hover {
+            color: $ice-color;
+          }
+        }
+      }
+
+      .social-list {
+        width: 100%;
+        list-style: none;
+        overflow: hidden;
+
+        &-item {
+          float: left;
+          font-size: 4rem;
+          margin: 2%;
+          transition: all 0.3s ease;
+          backface-visibility: hidden;
+          &:hover {
+            transform: translateY(-5px) scale(1.1);
+          }
+        }
+      }
+      @include respond(phone) {
+        padding: 1rem;
+      }
+    }
+  }
+}
