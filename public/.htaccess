@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /public/
+
+# Check if the requested file or directory exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect all other requests to index.php
+RewriteRule ^(.*)$ public/$1 [L]
+RewriteRule ^(.*)$ index.php [NC,L,QSA]

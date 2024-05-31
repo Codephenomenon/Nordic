@@ -1,0 +1,16 @@
+{
+    "name": "daniel/nordic",
+    "description": "A website for Nordic Ales and Meads",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Daniel Clayton"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
