@@ -1,0 +1,84 @@
+.about_grid {
+  display: grid;
+
+  grid-template-rows: 42rem min-content 36rem repeat(3, min-content);
+  grid-template-columns: [full-start] minmax(5rem,1fr) [center-start] repeat(10, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(5rem,1fr) [full-end];
+
+  @include respond(phone) {
+    grid-template-rows: 42rem min-content 36rem repeat(6, min-content);
+  }
+
+  .intro {
+    background: url('../images/danish.png');
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: right;
+    grid-column: full-start / full-end;
+    &:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 42rem;
+      background: linear-gradient(45deg, $primary-color 0%, $primary-color 40%, rgba($black, 0.4) 40%,transparent 100%);
+    }
+  }
+
+  .our-story {
+    background-color: $primary-dark;
+    grid-column: center-start / col-end 5;
+    @include respond(phone) {
+      grid-column: center-start / center-end;
+    }
+  }
+
+  .why-it-matters {
+    background-color: $primary-dark;
+    grid-column: col-end 5 / center-end;
+    @include respond(phone) {
+      grid-column: center-start / center-end;
+    }
+  }
+
+  .our-promise {
+    background-color: $primary-dark;
+    grid-column: center-start / col-end 5;
+    @include respond(phone) {
+      grid-column: center-start / center-end;
+    }
+  }
+
+  .about-image {
+    height: 36rem;
+    filter: grayscale(75%);
+    transition: all 0.3s;
+    background-size: contain;
+    &:hover {
+      filter: none;
+    }
+    &-1 {
+      grid-column: col-end 5 / center-end;
+      background: url('../images/barrels.png');
+      background-repeat: no-repeat;
+      @include respond(phone) {
+        grid-column: center-start / center-end;
+      }
+    }
+
+    &-2 {
+      grid-column: center-start / col-end 5;
+      background: url('../images/brewer.png');
+      background-repeat: no-repeat;
+      @include respond(phone) {
+        grid-column: center-start / center-end;
+      }
+    }
+    &-3 {
+      grid-column: col-end 5 / center-end;
+      background: url('../images/glasses.png');
+      background-repeat: no-repeat;
+      @include respond(phone) {
+        grid-column: center-start / center-end;
+      }
+    }
+  }
+}

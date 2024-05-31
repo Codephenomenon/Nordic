@@ -1,0 +1,14 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "Website for Northwind campaign",
+  "main": "app.js",
+  "scripts": {
+    "compile:sass": "node-sass scss/main.scss public/css/style.css -w"
+  },
+  "author": "Daniel Clayton",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.9.0"
+  }
+}

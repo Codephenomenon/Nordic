@@ -1,0 +1,56 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "pages/homepage";
+@import "pages/aboutus";
+@import "pages/error";
+
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(phone) {
+    font-size: 40%;
+  }  
+  @include respond(tablet) {
+    font-size: 50%;
+  }
+  @include respond(tablet-lg) {
+    font-size: 56.25%;
+  }
+  @include respond(desktop) {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background: $white;
+  width: 100%;
+  height: 100%;
+  max-width: 152rem;
+  margin: 0 auto;
+  border-right: 0.3rem solid $primary-dark;
+  border-left: 0.3rem solid $primary-dark;
+  position: relative;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: inherit;
+}

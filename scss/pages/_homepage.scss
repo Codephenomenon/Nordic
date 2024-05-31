@@ -1,0 +1,375 @@
+.products-banner {
+  width: 100%;
+  height: 42rem;
+  position: relative;
+  overflow: hidden;
+
+  @include respond('phone') {
+    height: 57rem;
+  }
+
+  .row {
+    width: 80%;
+    height: 30rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    z-index: 1;
+
+    &-text {
+      height: 5rem;
+      top: 88%;
+      .header {
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 2.7rem;
+        animation: text-fade-in 1s ease;
+        color: $white;
+        text-shadow: 2px 2px 2px rgba($black, 0.5);
+        transition: 0.4s ease;
+
+        &.br:hover {
+          color: $berserker;
+        }
+        &.vk:hover {
+          color: $vikingr;
+        }
+        &.vy:hover {
+          color: $valkyra;
+        }
+      }
+    }
+
+    .product {
+      width: 20vw;
+      height: 100%;
+
+      &-img {
+        width: auto;
+        height: 100%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-40%);
+        transition: all 0.4s ease;
+        backface-visibility: hidden;
+
+        @include respond('tablet') {
+          &:hover {
+            transform: scale(1.2) rotate(17deg) translateY(-10px);
+            margin-bottom: 1rem;
+          }
+        }
+      }
+
+      @include respond('tablet') {
+        &-left {
+          animation: left-fly-in 1s ease;
+        }
+        &-top {
+          animation: top-fly-in 1s ease;
+        }
+        &-right {
+          animation: right-fly-in 1s ease;
+        }
+      }
+    }
+  }
+
+  .streak {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15rem;
+    background: url('../images/horizontal-planks.jpg');
+    background-size: contain;
+
+    @include respond('phone') {
+      position: relative;
+    }
+  }
+
+  .carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+
+    &-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100vw;
+
+      .carousel-item {
+        flex: 1 0 100%;
+        width: 100%;
+        height: 42rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: white;
+
+        img {
+          max-width: 10rem;
+        }
+      }
+    }
+  }
+}
+
+.blue-background {
+  background: linear-gradient(45deg, darken($secondary-color, 25%), $secondary-color, $ice-color);
+}
+
+.red-background {
+  background-image: url(../images/background-red.png);
+}
+
+.black-background {
+    background-image: url(../images/background-black.png);
+}
+
+.gold-background {
+  background-image: url(../images/background-yellow.png);
+}
+
+.red-background,
+.black-background,
+.gold-background {
+  @include respond('phone') {
+    background-size: contain;
+  }
+}
+
+.hero {
+  width: 100%;
+  height: 80rem;
+  position: relative;
+  box-shadow: inset 0 0 6rem 2rem rgba($black, 0.5);
+  overflow: hidden;
+
+  @include respond('tablet') {
+    height: 100vh;
+  }
+
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.75;
+  }
+
+  .side-image {
+    width: 30rem;
+    height: 30rem;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url(../images/shield.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+
+    @include respond('desktop') {
+      width: 40rem;
+      height: 40rem;
+      top: 50%;
+      left: 25%;
+    }
+  }
+
+  .side-content {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 30rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 3rem 2rem;
+
+    &-header {
+      color: $white;
+      font-size: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    &-text {
+      color: $white;
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+
+      a {
+        color: $ice-color;
+      }
+    }
+
+    @include respond('tablet') {
+      height: 50rem;
+
+      &-header {
+        font-size: 4rem;
+        padding-bottom: 2rem;
+      }
+  
+      &-text {
+        font-size: 2.5rem;
+        padding-bottom: 2rem;
+      }
+    }
+
+    @include respond('desktop') {
+      height: 100%; 
+      width: 50rem;
+      right: 0;
+      left: initial;
+      top: 0;
+    }
+  }
+}
+
+.search {
+  width: 100%;
+  padding: 3rem;
+  background: $white;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+
+    @include respond('tablet-lg') {
+      flex-direction: row;
+      height: 40rem;
+    }
+
+    .search-box {
+      flex: 1;
+
+      &_results {
+        padding: 2rem;
+
+        .container {
+          background: rgba($primary-color, 0.3);
+          width: 100%;
+          align-self: stretch;
+          padding: 2rem;
+          height: 30rem;
+          overflow-y: scroll;
+        }
+      }
+
+      &_form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .search-form {
+
+          &-greeting {
+            font-size: 2rem;
+            text-align: center;
+            padding: 3px;
+            color: $primary-color;
+          }
+
+          &_group {
+            display: flex;
+            flex-direction: row;
+
+            &-zip {
+              float: left;
+              font-size: 1.3rem;
+              text-transform: uppercase;
+              margin: 1rem 0rem 1rem 13%;
+              padding: 1rem;
+              background: $secondary-color;
+            }
+
+            &-search {
+              margin: 1rem 0rem;
+              padding: 1rem;
+            }
+
+            &-button {
+              margin: 1rem 0rem;
+              padding: 1rem;
+            }
+          }
+        }
+
+        .map-container {
+          max-width: 30rem;
+        }
+      }
+    }
+  }
+}
+
+.promotion {
+  width: 100%;
+  border: 0.1rem solid $primary-dark;
+
+  .promo-container {
+    position: relative;
+    height: 10rem;
+    background: url('../images/banner.png') no-repeat center right / cover,
+              #7D7D7D; /* Fallback solid color */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include respond('tablet-lg') {
+      height: 16rem;
+    }
+
+    @include respond('desktop') {
+      height: 20rem;
+    }
+
+    @include respond('desktop-xl') {
+      height: 26rem;
+    }
+
+    &-text {
+      padding-left: 2rem;
+      text-transform: uppercase;   
+      font-size: 1.5rem; 
+      
+      @include respond('tablet') {
+        font-size: 2.5rem;
+      }
+
+      @include respond('desktop') {
+        font-size: 4rem;
+      }
+
+      &-sub {
+        text-transform: none;
+        font-size: 0.75rem;
+      
+        @include respond('tablet') {
+          font-size: 1.5rem;
+        }
+
+        @include respond('desktop') {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+}
+
+.shield-fly-in {
+  animation: shield-fly 1s ease-in;
+  animation-fill-mode: forwards;
+}
