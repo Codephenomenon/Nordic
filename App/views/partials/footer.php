@@ -3,7 +3,7 @@
             <div class="footer-box">
             <h2 class="footer-box-header">Terms of Service</h2>
             <ul class="footer-box-list">
-                <a href="#"><li class="footer-box-list-item">Policy Change</li></a>
+                <a href="#"><li class="footer-box-list-item">About us</li></a>
                 <a href="#"><li class="footer-box-list-item">Legal</li></a>
                 <a href="#"><li class="footer-box-list-item">FAQ</li></a>
             </ul>

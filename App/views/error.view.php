@@ -1,4 +1,4 @@
-<?php loadPartial("header"); ?>
+<?php loadPartial("header-alt"); ?>
 <body>
     <main>
         <section class="error">
