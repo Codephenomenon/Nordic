@@ -4,20 +4,16 @@
         <!-- Tablet and Desktop Banner -->
         <section id="productsBanner" class="products-banner blue-background d-tablet">
             <div class="row">
-                <div class="product product-left">
-                    <img id="berserker" class="product-img" src="/images/berserker.png" alt=""/>
+                <?php foreach ($beverages as $drink): ?>
+                <div class="product">
+                    <img id="<?= strtolower(splitString($drink->name)) ?>" class="product-img" src="/images/<?= $drink->image ?>" alt="<?= $drink->name ?>"/>
                 </div>
-                <div class="product product-top">
-                    <img id="vikingr" class="product-img" src="/images/vikingr-brew.png" alt=""/>
-                </div>
-                <div class="product product-right">
-                    <img id="valkyra" class="product-img" src="/images/valkyra.png" alt=""/>
-                </div>
+                <?php endforeach; ?>
             </div>
             <div class="row row-text">
-                <h2 class="header br">berserker</h2>
-                <h2 class="header vk">vikingr</h2>
-                <h2 class="header vy">valkyra</h2>
+                <?php foreach ($beverages as $drink): ?>
+                    <h2 class="header <?= $drink->short_form ?>"><?= splitString($drink->name) ?></h2>
+                <?php endforeach; ?>
             </div>
             <div class="streak"></div>
         </section>
@@ -36,7 +32,11 @@
                     </div>
                 </div>
             </div>
-            <div class="streak"></div>
+            <div class="streak">
+                <h2 data-header="0" class="mobile-header d-block">Berserker</h2>
+                <h2 data-header="1" class="mobile-header">Vikingr</h2>
+                <h2 data-header="2" class="mobile-header">Valkyra</h2>
+            </div>
         </section>
         <section class="hero">
             <div class="video">
@@ -107,13 +107,8 @@
                 </div>
             </div>
         </section>
-        <section class="promotion">
-            <div class="promo-container">
-                <a href="/">
-                    <h2 class="promo-container-text">enter to win</br></h2>
-                    <span class="promo-container-text promo-container-text-sub">viking invasion contest</span>
-                </a>
-            </div>
-        </section>
     </main>
+    <?php if (!empty($script)) : ?>
+        <script type="text/javascript" src="/js/<?= $script ?>.js"></script>
+    <?php endif; ?>
     <?php loadPartial("footer"); ?>

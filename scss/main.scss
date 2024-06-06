@@ -12,8 +12,9 @@
 @import "layout/footer";
 
 @import "pages/homepage"; 
+@import "pages/products";
 @import "pages/aboutus";
-@import "pages/error";
+@import "pages/error"; 
 
 *,
 *::before,
@@ -43,6 +44,7 @@ html {
 body {
   font-family: 'Titillium Web', sans-serif;
   background: $white;
+  color: $primary-dark;
   width: 100%;
   height: 100%;
   max-width: 152rem;

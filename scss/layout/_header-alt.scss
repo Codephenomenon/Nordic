@@ -44,9 +44,7 @@
         background-size: contain;
         padding: 0 5rem;
     
-        @include respond('phone') {
-          position: relative;
-        }
+        
       }
 
     // &_menu {

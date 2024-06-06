@@ -44,6 +44,9 @@ p {
   p.large {
     font-size: 2rem; }
 
+ul {
+  padding-left: 2rem; }
+
 .d-mobile {
   display: none; }
   @media only screen and (max-width: 556px) {
@@ -108,9 +111,6 @@ p {
     background: url("../images/horizontal-planks.jpg");
     background-size: contain;
     padding: 0 5rem; }
-    @media only screen and (max-width: 556px) {
-      .header-alt .streak {
-        position: relative; } }
 
 .nav {
   width: 7rem;
@@ -247,7 +247,8 @@ footer {
         animation: text-fade-in 1s ease;
         color: #fff;
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-        transition: 0.4s ease; }
+        transition: 0.4s ease;
+        top: 0; }
         .products-banner .row-text .header.br:hover {
           color: #DF1F16; }
         .products-banner .row-text .header.vk:hover {
@@ -270,11 +271,11 @@ footer {
             transform: scale(1.2) rotate(17deg) translateY(-10px);
             margin-bottom: 1rem; } }
       @media only screen and (min-width: 557px) {
-        .products-banner .row .product-left {
+        .products-banner .row .product:first-of-type {
           animation: left-fly-in 1s ease; }
-        .products-banner .row .product-top {
+        .products-banner .row .product:nth-of-type(2) {
           animation: top-fly-in 1s ease; }
-        .products-banner .row .product-right {
+        .products-banner .row .product:nth-of-type(3) {
           animation: right-fly-in 1s ease; } }
   .products-banner .streak {
     position: absolute;
@@ -284,9 +285,20 @@ footer {
     height: 15rem;
     background: url("../images/horizontal-planks.jpg");
     background-size: contain; }
+    .products-banner .streak .mobile-header {
+      display: none; }
     @media only screen and (max-width: 556px) {
       .products-banner .streak {
-        position: relative; } }
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .products-banner .streak .mobile-header.d-block {
+          display: block;
+          font-size: 5rem;
+          color: #fff;
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+          transition: 0.4s ease; } }
   .products-banner .carousel {
     overflow: hidden;
     width: 100%;
@@ -445,103 +457,105 @@ footer {
         .search .row .search-box_form .map-container {
           max-width: 30rem; }
 
-.promotion {
-  width: 100%;
-  border: 0.1rem solid #030D29; }
-  .promotion .promo-container {
-    position: relative;
-    height: 10rem;
-    background: url("../images/banner.png") no-repeat center right/cover, #7D7D7D;
-    /* Fallback solid color */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center; }
-    @media only screen and (min-width: 768px) {
-      .promotion .promo-container {
-        height: 16rem; } }
-    @media only screen and (min-width: 992px) {
-      .promotion .promo-container {
-        height: 20rem; } }
-    @media only screen and (min-width: 1200px) {
-      .promotion .promo-container {
-        height: 26rem; } }
-    .promotion .promo-container-text {
-      padding-left: 2rem;
-      text-transform: uppercase;
-      font-size: 1.5rem; }
-      @media only screen and (min-width: 557px) {
-        .promotion .promo-container-text {
-          font-size: 2.5rem; } }
-      @media only screen and (min-width: 992px) {
-        .promotion .promo-container-text {
-          font-size: 4rem; } }
-      .promotion .promo-container-text-sub {
-        text-transform: none;
-        font-size: 0.75rem; }
-        @media only screen and (min-width: 557px) {
-          .promotion .promo-container-text-sub {
-            font-size: 1.5rem; } }
-        @media only screen and (min-width: 992px) {
-          .promotion .promo-container-text-sub {
-            font-size: 2rem; } }
-
 .shield-fly-in {
   animation: shield-fly 1s ease-in;
   animation-fill-mode: forwards; }
 
+.products-container {
+  width: 100%;
+  height: auto;
+  min-height: 80rem;
+  padding: 2rem 4rem;
+  display: flex; }
+  .products-container .container {
+    display: flex;
+    align-self: stretch;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+    .products-container .container .accordion {
+      width: 30%;
+      border-right: 1px solid #ddd; }
+      .products-container .container .accordion-item {
+        border-bottom: 1px solid #ddd; }
+        .products-container .container .accordion-item button {
+          width: 100%;
+          background-color: #fff;
+          border: none;
+          outline: none;
+          padding: 15px;
+          text-align: left;
+          font-size: 18px;
+          cursor: pointer;
+          transition: background-color 0.3s ease; }
+          .products-container .container .accordion-item button:hover,
+          .products-container .container .accordion-item button .active {
+            background-color: rgba(1, 76, 140, 0.5);
+            color: #fff; }
+      .products-container .container .accordion-content {
+        display: none;
+        padding: 15px;
+        background-color: #f9f9f9; }
+    .products-container .container .display-area {
+      width: 70%;
+      padding: 20px; }
+      .products-container .container .display-area h2 {
+        margin-top: 0; }
+      .products-container .container .display-area .beverage-info {
+        display: none; }
+        .products-container .container .display-area .beverage-info.active {
+          display: block; }
+        .products-container .container .display-area .beverage-info h3 {
+          font-size: 2rem;
+          margin-bottom: 1rem; }
+        .products-container .container .display-area .beverage-info p {
+          margin-bottom: 0.5rem; }
+        .products-container .container .display-area .beverage-info img {
+          max-width: 8rem;
+          display: block;
+          margin: 1rem auto; }
+
 .about_grid {
-  display: grid;
-  grid-template-rows: 42rem min-content 36rem repeat(3, min-content);
-  grid-template-columns: [full-start] minmax(5rem, 1fr) [center-start] repeat(10, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(5rem, 1fr) [full-end]; }
-  @media only screen and (max-width: 556px) {
-    .about_grid {
-      grid-template-rows: 42rem min-content 36rem repeat(6, min-content); } }
-  .about_grid .our-story {
-    background-color: #030D29;
-    grid-column: center-start / col-end 5; }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto; }
+  .about_grid .row {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff; }
     @media only screen and (max-width: 556px) {
-      .about_grid .our-story {
-        grid-column: center-start / center-end; } }
-  .about_grid .why-it-matters {
-    background-color: #030D29;
-    grid-column: col-end 5 / center-end; }
-    @media only screen and (max-width: 556px) {
-      .about_grid .why-it-matters {
-        grid-column: center-start / center-end; } }
-  .about_grid .our-promise {
-    background-color: #030D29;
-    grid-column: center-start / col-end 5; }
-    @media only screen and (max-width: 556px) {
-      .about_grid .our-promise {
-        grid-column: center-start / center-end; } }
-  .about_grid .about-image {
-    height: 36rem;
-    filter: grayscale(75%);
-    transition: all 0.3s;
-    background-size: contain; }
-    .about_grid .about-image:hover {
-      filter: none; }
-    .about_grid .about-image-1 {
-      grid-column: col-end 5 / center-end;
-      background: url("../images/barrels.png");
+      .about_grid .row.flip-order {
+        flex-direction: column-reverse; } }
+    @media only screen and (min-width: 557px) {
+      .about_grid .row {
+        flex-direction: row; } }
+    .about_grid .row .copy {
+      width: 100%;
+      padding: 2rem; }
+      @media only screen and (min-width: 557px) {
+        .about_grid .row .copy {
+          flex: 0 0 50%; } }
+      .about_grid .row .copy ul {
+        padding-left: 1.5rem; }
+        .about_grid .row .copy ul li {
+          margin-bottom: 1rem; }
+    .about_grid .row .about_grid-image {
+      width: 100%;
+      height: 36rem;
+      filter: grayscale(75%);
+      transition: all 0.3s;
+      background-size: cover;
       background-repeat: no-repeat; }
-      @media only screen and (max-width: 556px) {
-        .about_grid .about-image-1 {
-          grid-column: center-start / center-end; } }
-    .about_grid .about-image-2 {
-      grid-column: center-start / col-end 5;
-      background: url("../images/brewer.png");
-      background-repeat: no-repeat; }
-      @media only screen and (max-width: 556px) {
-        .about_grid .about-image-2 {
-          grid-column: center-start / center-end; } }
-    .about_grid .about-image-3 {
-      grid-column: col-end 5 / center-end;
-      background: url("../images/glasses.png");
-      background-repeat: no-repeat; }
-      @media only screen and (max-width: 556px) {
-        .about_grid .about-image-3 {
-          grid-column: center-start / center-end; } }
+      @media only screen and (min-width: 557px) {
+        .about_grid .row .about_grid-image {
+          flex: 0 0 50%; } }
+      .about_grid .row .about_grid-image:hover {
+        filter: none; }
+      .about_grid .row .about_grid-image.image-1 {
+        background-image: url("../images/brewer.png"); }
+      .about_grid .row .about_grid-image.image-2 {
+        background-image: url("../images/glasses.png"); }
 
 .error {
   width: 100%;
@@ -583,6 +597,7 @@ html {
 body {
   font-family: 'Titillium Web', sans-serif;
   background: #fff;
+  color: #030D29;
   width: 100%;
   height: 100%;
   max-width: 152rem;

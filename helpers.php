@@ -79,3 +79,25 @@ function inspectAndDie($value) {
     die(var_dump($value));
     echo '<pre>';
 }
+
+/**
+ * Split string 
+ * 
+ * @param string $value
+ * @return string first value of split
+ */
+function splitString($text) {
+    $splitArray = explode(' ', $text);
+    $splitVal = $splitArray[0];
+    return $splitVal;
+}
+
+/**
+ * Format price
+ * 
+ * @param string $price
+ * @return string formatted price
+ */
+function formatPrice($price) {
+    return '$' . sprintf("%2.2f", $price);
+}
