@@ -23,6 +23,7 @@
     &-text {
       height: 5rem;
       top: 88%;
+
       .header {
         position: relative;
         text-align: center;
@@ -32,6 +33,7 @@
         color: $white;
         text-shadow: 2px 2px 2px rgba($black, 0.5);
         transition: 0.4s ease;
+        top: 0;
 
         &.br:hover {
           color: $berserker;
@@ -67,13 +69,13 @@
       }
 
       @include respond('tablet') {
-        &-left {
+        &:first-of-type {
           animation: left-fly-in 1s ease;
         }
-        &-top {
+        &:nth-of-type(2) {
           animation: top-fly-in 1s ease;
         }
-        &-right {
+        &:nth-of-type(3) {
           animation: right-fly-in 1s ease;
         }
       }
@@ -89,8 +91,23 @@
     background: url('../images/horizontal-planks.jpg');
     background-size: contain;
 
+    .mobile-header {
+      display: none;
+    }
+
     @include respond('phone') {
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .mobile-header.d-block {
+        display: block;
+        font-size: 5rem;
+        color: $white;
+        text-shadow: 2px 2px 2px rgba($black, 0.5);
+        transition: 0.4s ease;
+      }
     }
   }
 
@@ -312,61 +329,6 @@
       }
     }
   }
-}
-
-.promotion {
-  width: 100%;
-  border: 0.1rem solid $primary-dark;
-
-  .promo-container {
-    position: relative;
-    height: 10rem;
-    background: url('../images/banner.png') no-repeat center right / cover,
-              #7D7D7D; /* Fallback solid color */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    @include respond('tablet-lg') {
-      height: 16rem;
-    }
-
-    @include respond('desktop') {
-      height: 20rem;
-    }
-
-    @include respond('desktop-xl') {
-      height: 26rem;
-    }
-
-    &-text {
-      padding-left: 2rem;
-      text-transform: uppercase;   
-      font-size: 1.5rem; 
-      
-      @include respond('tablet') {
-        font-size: 2.5rem;
-      }
-
-      @include respond('desktop') {
-        font-size: 4rem;
-      }
-
-      &-sub {
-        text-transform: none;
-        font-size: 0.75rem;
-      
-        @include respond('tablet') {
-          font-size: 1.5rem;
-        }
-
-        @include respond('desktop') {
-          font-size: 2rem;
-        }
-      }
-    }
-  }
-
 }
 
 .shield-fly-in {

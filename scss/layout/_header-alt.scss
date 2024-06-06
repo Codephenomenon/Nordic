@@ -1,0 +1,69 @@
+.header-alt {
+    width: 100%;
+    height: 42rem;
+    background: url('../images/danish.png');
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: right;
+    display: flex;
+    
+    &:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 42rem;
+      background: linear-gradient(45deg, $primary-color 0%, $primary-color 40%, rgba($black, 0.4) 40%,transparent 100%);
+    }
+
+    .fixed-helper {
+        height: 15rem;
+        width: 20rem;
+        position: fixed;
+        margin-left: 1rem;
+        top: 1.2rem;
+        z-index: 1;
+    }
+
+    .logo {
+        position: absolute;
+        top: 1.2rem;
+        right: 1rem;
+        width: 23rem;
+        height: 8rem;
+        background-image: url("../images/nordic-logo.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .streak {
+        position: relative;
+        align-self: flex-end;
+        width: 100%;
+        height: 15rem;
+        background: url('../images/horizontal-planks.jpg');
+        background-size: contain;
+        padding: 0 5rem;
+    
+        
+      }
+
+    // &_menu {
+    //     position: absolute;
+    //     right: 0;
+    //     top: 0;
+    //     width: 60rem;
+    //     height: 100%;
+    //     align-self: stretch;
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: space-around;
+    //     list-style: none;
+
+    //     .menu-item {
+    //         flex: 1;
+    //         color: $white;
+    //         padding: 0.5rem;
+    //     }
+    // }
+}
+  

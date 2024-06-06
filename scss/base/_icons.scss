@@ -1,0 +1,13 @@
+.icon {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &-search {
+        background-image: url(../images/icons/search.svg);
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
