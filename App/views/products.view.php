@@ -1,6 +1,6 @@
 <?php loadPartial("header-alt"); ?>
 <body>
-    <main>
+    <main id="products">
         <section class="products-container">
             <div class="container">
                 <div class="accordion">
@@ -50,6 +50,7 @@
         </section>
     </main>
     <?php if (!empty($script)) : ?>
-        <script type="text/javascript" src="/js/<?= $script ?>.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script type="module" src="/js/<?= $script ?>.js"></script>
     <?php endif; ?>
     <?php loadPartial("footer"); ?>

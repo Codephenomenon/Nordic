@@ -1,6 +1,17 @@
 <?php loadPartial("header"); ?>
+<!-- Load Google Maps API key -->
+<?php if (!empty($key)) : ?>
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+            key: "<?= $key ?>",
+            v: "weekly",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+<?php endif; ?>
 <body>
-    <main>
+    <main id="home">
         <!-- Tablet and Desktop Banner -->
         <section id="productsBanner" class="products-banner blue-background d-tablet">
             <div class="row">
@@ -64,7 +75,9 @@
                             <button class="search-form_group-button"><i class="fa fa-search"></i></button>
                         </div>
                     </form>
-                    <img class="map-container" src="./images/map.png" alt="map">
+                    <div class="map-container">
+                        <gmp-map id="searchMap" class="map"></gmp-map>
+                    </div>
                 </div>
                 <div class="search-box search-box_results">
                     <div class="container">
@@ -109,6 +122,7 @@
         </section>
     </main>
     <?php if (!empty($script)) : ?>
-        <script type="text/javascript" src="/js/<?= $script ?>.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script type="module" src="/js/<?= $script ?>.js"></script>
     <?php endif; ?>
     <?php loadPartial("footer"); ?>

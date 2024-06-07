@@ -417,7 +417,8 @@ footer {
     @media only screen and (min-width: 768px) {
       .search .row {
         flex-direction: row;
-        height: 40rem; } }
+        height: auto;
+        min-height: 42rem; } }
     .search .row .search-box {
       flex: 1; }
       .search .row .search-box_results {
@@ -427,35 +428,51 @@ footer {
           width: 100%;
           align-self: stretch;
           padding: 2rem;
-          height: 30rem;
+          height: 39rem;
           overflow-y: scroll; }
       .search .row .search-box_form {
         display: flex;
         align-items: center;
         flex-direction: column; }
-        .search .row .search-box_form .search-form-greeting {
-          font-size: 2rem;
-          text-align: center;
-          padding: 3px;
-          color: #012340; }
-        .search .row .search-box_form .search-form_group {
+        .search .row .search-box_form .search-form {
+          width: 100%;
           display: flex;
-          flex-direction: row; }
-          .search .row .search-box_form .search-form_group-zip {
-            float: left;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            margin: 1rem 0rem 1rem 13%;
-            padding: 1rem;
-            background: #014C8C; }
-          .search .row .search-box_form .search-form_group-search {
-            margin: 1rem 0rem;
-            padding: 1rem; }
-          .search .row .search-box_form .search-form_group-button {
-            margin: 1rem 0rem;
-            padding: 1rem; }
+          flex-direction: row;
+          justify-content: center; }
+          .search .row .search-box_form .search-form-greeting {
+            font-size: 2rem;
+            text-align: center;
+            padding: 3px;
+            color: #012340; }
+          .search .row .search-box_form .search-form_group {
+            display: flex;
+            flex-direction: row;
+            max-width: 40rem; }
+            .search .row .search-box_form .search-form_group-zip {
+              font-size: 1.3rem;
+              text-transform: uppercase;
+              margin: 1rem 0rem;
+              padding: 1rem;
+              background: #014C8C;
+              color: #fff; }
+            .search .row .search-box_form .search-form_group-search {
+              margin: 1rem 0rem;
+              width: 100%;
+              padding: 1rem; }
+            .search .row .search-box_form .search-form_group-button {
+              margin: 1rem 0rem;
+              padding: 1rem;
+              cursor: pointer; }
         .search .row .search-box_form .map-container {
-          max-width: 30rem; }
+          width: 100%;
+          max-width: 40rem;
+          height: auto;
+          padding: 0.5rem; }
+          .search .row .search-box_form .map-container .map {
+            width: 100%;
+            height: 30rem;
+            display: block;
+            border: 0.1rem solid #030D29; }
 
 .shield-fly-in {
   animation: shield-fly 1s ease-in;

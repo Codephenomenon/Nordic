@@ -6,10 +6,14 @@ use Framework\Database;
 
 class HomeController {
     protected $db;
+    protected $mapsKey;
 
     public function __construct() {
         $config = require basePath('config/db.php');
+        $envConfig = require basePath('config/env.php');
+
         $this->db = new Database($config);
+        $this->mapsKey = $envConfig["GOOGLE_MAPS_API_KEY"];
     }
 
     public function index() {
@@ -18,7 +22,8 @@ class HomeController {
 
         loadView('home', [
             'beverages' => $beverages,
-            'script' => $script
+            'script' => $script,
+            'key' => $this->mapsKey
         ]);
     }
 }

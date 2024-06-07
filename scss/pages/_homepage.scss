@@ -265,7 +265,8 @@
 
     @include respond('tablet-lg') {
       flex-direction: row;
-      height: 40rem;
+      height: auto;
+      min-height: 42rem;
     }
 
     .search-box {
@@ -279,7 +280,7 @@
           width: 100%;
           align-self: stretch;
           padding: 2rem;
-          height: 30rem;
+          height: 39rem;
           overflow-y: scroll;
         }
       }
@@ -290,6 +291,10 @@
         flex-direction: column;
 
         .search-form {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
 
           &-greeting {
             font-size: 2rem;
@@ -301,30 +306,43 @@
           &_group {
             display: flex;
             flex-direction: row;
+            max-width: 40rem;
 
             &-zip {
-              float: left;
               font-size: 1.3rem;
               text-transform: uppercase;
-              margin: 1rem 0rem 1rem 13%;
+              margin: 1rem 0rem;
               padding: 1rem;
               background: $secondary-color;
+              color: $white;
             }
 
             &-search {
               margin: 1rem 0rem;
+              width: 100%;
               padding: 1rem;
             }
 
             &-button {
               margin: 1rem 0rem;
               padding: 1rem;
+              cursor: pointer;
             }
           }
         }
 
         .map-container {
-          max-width: 30rem;
+          width: 100%;
+          max-width: 40rem;
+          height: auto;
+          padding: 0.5rem;
+
+          .map { 
+            width: 100%;
+            height: 30rem; 
+            display: block;
+            border: 0.1rem solid $primary-dark;
+          }
         }
       }
     }
