@@ -33,6 +33,18 @@
     transform: translate(-50%, -50%);
     opacity: 1; } }
 
+@keyframes pop-in {
+  0% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0; }
+  60% {
+    transform: translateY(30px) scale(1.1);
+    opacity: 1; }
+  80% {
+    transform: translateY(-10px) scale(0.9); }
+  100% {
+    transform: translateY(0) scale(1); } }
+
 h1 {
   font-size: 5rem; }
 
@@ -98,11 +110,14 @@ ul {
     position: absolute;
     top: 1.2rem;
     right: 1rem;
-    width: 23rem;
+    width: 21rem;
     height: 8rem;
     background-image: url("../images/nordic-logo.png");
     background-repeat: no-repeat;
-    background-size: contain; }
+    background-size: contain;
+    transition: 0.3s ease;
+    box-shadow: 2px 7px 4px rgba(0, 0, 0, 0.4);
+    animation: pop-in 1s ease-out; }
   .header-alt .streak {
     position: relative;
     align-self: flex-end;
@@ -166,19 +181,59 @@ ul {
         top: 1.4rem;
         left: 1.2rem; }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; }
+  .overlay.d-none {
+    display: none; }
+  .overlay-content {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 40rem;
+    width: 80%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3); }
+    .overlay-content h2, .overlay-content p {
+      margin: 0 0 2rem; }
+    .overlay-content button {
+      background-color: #012340;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      font-size: 1.6rem;
+      transition: 0.3s ease; }
+      .overlay-content button:hover {
+        background-color: #014C8C; }
+
 footer {
   width: 100%;
-  height: 20rem;
+  height: auto;
   background-color: #012340; }
   footer .row {
     width: 100%;
-    height: 20rem;
+    height: auto;
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around; }
+    @media only screen and (min-width: 557px) {
+      footer .row {
+        flex-direction: row;
+        height: 20rem; } }
     footer .row .footer-box {
-      width: 20%;
+      flex: 1;
       padding: 3rem;
       text-align: center;
       color: #fff; }
@@ -186,17 +241,18 @@ footer {
         text-transform: uppercase;
         font-size: 2rem;
         padding: 3px; }
-      footer .row .footer-box-span {
-        font-size: 1.1rem;
+      footer .row .footer-box-copy {
         font-weight: 300;
-        padding: 2px; }
+        padding: 0.2rem; }
         @media only screen and (max-width: 556px) {
-          footer .row .footer-box-span {
-            font-size: 0.8rem; } }
+          footer .row .footer-box-copy {
+            max-width: 40rem;
+            display: block;
+            margin: 0 auto; } }
       footer .row .footer-box-list {
         list-style: none; }
         footer .row .footer-box-list-item {
-          font-size: 1.3rem;
+          font-size: 1.7rem;
           padding: 2px;
           transition: all 0.3s ease; }
           footer .row .footer-box-list-item:hover {
@@ -204,18 +260,22 @@ footer {
       footer .row .footer-box .social-list {
         width: 100%;
         list-style: none;
-        overflow: hidden; }
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0; }
+        @media only screen and (min-width: 557px) {
+          footer .row .footer-box .social-list {
+            padding: 1rem; } }
         footer .row .footer-box .social-list-item {
-          float: left;
           font-size: 4rem;
-          margin: 2%;
+          margin: 1rem;
           transition: all 0.3s ease;
           backface-visibility: hidden; }
           footer .row .footer-box .social-list-item:hover {
             transform: translateY(-5px) scale(1.1); }
-      @media only screen and (max-width: 556px) {
-        footer .row .footer-box {
-          padding: 1rem; } }
 
 .products-banner {
   width: 100%;
@@ -356,16 +416,20 @@ footer {
     object-fit: cover;
     opacity: 0.75; }
   .hero .side-image {
-    width: 30rem;
-    height: 30rem;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-image: url(../images/shield.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0; }
+    display: none; }
+    @media only screen and (min-width: 557px) {
+      .hero .side-image {
+        display: block;
+        width: 30rem;
+        height: 30rem;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url(../images/shield.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0; } }
     @media only screen and (min-width: 992px) {
       .hero .side-image {
         width: 40rem;
@@ -377,28 +441,20 @@ footer {
     width: 100%;
     bottom: 0;
     left: 0;
-    height: 30rem;
+    height: 100%;
     background: rgba(0, 0, 0, 0.4);
     padding: 3rem 2rem; }
     .hero .side-content-header {
       color: #fff;
-      font-size: 2rem;
       padding-bottom: 1rem; }
     .hero .side-content-text {
       color: #fff;
-      font-size: 1.5rem;
       padding-bottom: 1rem; }
       .hero .side-content-text a {
         color: #9BD1F2; }
     @media only screen and (min-width: 557px) {
       .hero .side-content {
-        height: 50rem; }
-        .hero .side-content-header {
-          font-size: 4rem;
-          padding-bottom: 2rem; }
-        .hero .side-content-text {
-          font-size: 2.5rem;
-          padding-bottom: 2rem; } }
+        height: 44rem; } }
     @media only screen and (min-width: 992px) {
       .hero .side-content {
         height: 100%;
@@ -505,8 +561,7 @@ footer {
           font-size: 18px;
           cursor: pointer;
           transition: background-color 0.3s ease; }
-          .products-container .container .accordion-item button:hover,
-          .products-container .container .accordion-item button .active {
+          .products-container .container .accordion-item button:hover, .products-container .container .accordion-item button.active {
             background-color: rgba(1, 76, 140, 0.5);
             color: #fff; }
       .products-container .container .accordion-content {

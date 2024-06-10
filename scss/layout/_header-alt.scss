@@ -28,11 +28,14 @@
         position: absolute;
         top: 1.2rem;
         right: 1rem;
-        width: 23rem;
+        width: 21rem;
         height: 8rem;
         background-image: url("../images/nordic-logo.png");
         background-repeat: no-repeat;
         background-size: contain;
+        transition: 0.3s ease;
+        box-shadow: 2px 7px 4px rgba($black, 0.4);
+        animation: pop-in 1s ease-out;
     }
 
     .streak {

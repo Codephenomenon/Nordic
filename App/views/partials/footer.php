@@ -1,3 +1,4 @@
+<?php loadPartial("overlay"); ?>
         <footer>
             <div class="row">
                 <div class="footer-box">
@@ -10,7 +11,7 @@
                 </div>
                 <div class="footer-box">
                 <h2 class="footer-box-header">Nordic&#174; contests</h2>
-                <span class="footer-box-span">NO PURCHASE NECESSARY. Open to US residents 21+. Begins 1/1/18 and ends 12/31/18. See Official Rules for additional eligibility requirements, rewards and complete details.</span>
+                <p class="footer-box-copy">NO PURCHASE NECESSARY. Open to US residents 21+. Begins 1/1/18 and ends 12/31/18. See Official Rules for additional eligibility requirements, rewards and complete details.</p>
                 </div>
                 <div class="footer-box">
                 <ul class="social-list">

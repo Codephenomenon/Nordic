@@ -16,7 +16,7 @@ const app = createApp({
 
     const initMap = async () => {
       const { Map } = await google.maps.importLibrary("maps");
-
+      
       map = new Map(document.getElementById("searchMap"), {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 8,
@@ -72,7 +72,7 @@ const app = createApp({
     };
 
     onMounted(async () => {
-      initMap();
+      //initMap();
 
       berserker.value = document.getElementById("berserker");
       vikingr.value = document.getElementById("vikingr");

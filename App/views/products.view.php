@@ -4,12 +4,14 @@
         <section class="products-container">
             <div class="container">
                 <div class="accordion">
+                    <?php $bevCount = $displayCount = 0; ?>
                     <?php foreach ($beverages as $drink): ?>
                     <div class="accordion-item">
-                        <button id="<?= strtolower(splitString($drink->name)) ?>-btn"><?= $drink->name ?></button>
+                        <button id="<?= strtolower(splitString($drink->name)) ?>-btn" class="<?php if ($bevCount === 0) { echo 'active'; } ?>"><?= $drink->name ?></button>
                         <div id="<?= strtolower(splitString($drink->name)) ?>-content" class="accordion-content">
                         </div>
                     </div>
+                    <?php $bevCount++; ?>
                     <?php endforeach; ?>
                 </div>
                 <div class="display-area">
@@ -27,7 +29,7 @@
                                 $packaging = "per 6-pack";
                         }
                     ?>
-                    <div id="<?= strtolower(splitString($drink->name)) ?>-info" class="beverage-info">
+                    <div id="<?= strtolower(splitString($drink->name)) ?>-info" class="beverage-info <?php if ($displayCount === 0) { echo 'active'; } ?>">
                         <h2><?= $drink->name ?></h2>
                         <p>
                             <?= $drink->description ?>
@@ -44,13 +46,13 @@
                         <h3>Price</h3>
                         <p><?= $drink->name ?> is available for <strong><?= formatPrice($drink->price) ?> <?= $packaging ?></strong>.</p>
                     </div>
+                    <?php $displayCount++; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
         </section>
     </main>
     <?php if (!empty($script)) : ?>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script type="module" src="/js/<?= $script ?>.js"></script>
     <?php endif; ?>
     <?php loadPartial("footer"); ?>

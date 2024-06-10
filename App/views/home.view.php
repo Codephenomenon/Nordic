@@ -44,9 +44,9 @@
                 </div>
             </div>
             <div class="streak">
-                <h2 data-header="0" class="mobile-header d-block">Berserker</h2>
-                <h2 data-header="1" class="mobile-header">Vikingr</h2>
-                <h2 data-header="2" class="mobile-header">Valkyra</h2>
+                <h1 data-header="0" class="mobile-header d-block">Berserker</h1>
+                <h1 data-header="1" class="mobile-header">Vikingr</h1>
+                <h1 data-header="2" class="mobile-header">Valkyra</h1>
             </div>
         </section>
         <section class="hero">
@@ -58,9 +58,14 @@
             </video>
             <div id="shield" class="side-image"></div>
             <div class="side-content">
-                <h1 class="side-content-header">Why choose Nordic Ale?</h1>
-                <p class="side-content-text">For those who claim the spirit of adventure, there is no other ale for you. Be wary, Nordic ale is not for the faint of heart, and offers the culmination of honeyed spices and rich flavor. Each bottle of our finest ales will take you on a long journey north, back to a time when man braved the sea in search of new lands. </p>
-                <p class="side-content-text">Brewed in the heart of Denmark, Nordic boasts a strong tradition of crafting the finest meads and ales for a thousand leagues. Find Nordic ale at the purveyor of quality beverages nearest to <a href="#">you!</a></p>
+                <h2 class="side-content-header">Why choose Nordic Ale?</h2>
+                <p class="side-content-text">For those who claim the spirit of adventure, there is no other ale for you. Be wary, Nordic ale is not for the faint of heart, and offers the culmination of honeyed spices and rich flavor. Each bottle of our finest ales will take you on a long journey north, back to a time when man braved the sea in search of new lands.</p>
+                <p class="side-content-text">Brewed in the heart of Denmark, Nordic boasts a strong tradition of crafting the finest meads and ales for a thousand leagues. Our recipes are deeply rooted in ancient Norse traditions, passed down through generations, ensuring that every sip is a testament to our rich heritage.</p>
+                <p class="side-content-text">Indulge in the bold and robust flavors that define our signature brews. From the first taste, you'll be enveloped by the warmth and complexity of our carefully selected ingredients, each one chosen to bring out the true essence of Nordic brewing. Whether you prefer the deep, earthy tones of our ales or the sweet, floral notes of our meads, you'll find that every bottle is a masterpiece of craftsmanship.</p>
+                <p class="side-content-text">Our brewing process is as much an art as it is a science. We use only the purest water from Danish springs, combined with locally sourced barley and hops, and the finest honey to create a unique blend that is both timeless and contemporary. The result is a collection of beverages that not only honor the past but also excite the palates of modern connoisseurs.</p>
+                <p class="side-content-text">At Nordic, we believe that every bottle tells a story. A story of ancient warriors and explorers, of longships and fjords, of unyielding strength and unparalleled resilience. As you enjoy our ales and meads, you become part of this legacy, embracing the spirit of the Vikings who once roamed these lands.</p>
+                <p class="side-content-text">Find Nordic ale at the purveyor of quality beverages nearest to you! Join us on a journey through time and taste the tradition of excellence that has made Nordic a name synonymous with the finest in mead and ale brewing. Whether you are a seasoned adventurer or a curious newcomer, there is a Nordic brew waiting to be discovered by you.</p>
+                <p class="side-content-text">So, raise your horn, toast to the Norse gods, and let the flavors of Nordic transport you to a world of myth and legend. Sk&aring;l!</p>
             </div>
             </div>
         </section>
@@ -122,7 +127,6 @@
         </section>
     </main>
     <?php if (!empty($script)) : ?>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script type="module" src="/js/<?= $script ?>.js"></script>
     <?php endif; ?>
     <?php loadPartial("footer"); ?>

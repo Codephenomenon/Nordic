@@ -1,42 +1,38 @@
-const { createApp, ref, onMounted } = Vue;
+const { createApp, onMounted } = Vue;
 
-const app = createApp({
-    setup() {
-    const buttons = ref([]);
-    const beverageInfos = ref([]);
+const app = Vue.createApp({
+    data() {
+        return {
+            buttons: [],
+            beverageInfos: []
+        };
+    },
+    methods: {
+        toggleAccordion(event) {
+            const button = event.currentTarget;
 
-    onMounted(() => {
-        buttons.value = Array.from(document.querySelectorAll('.accordion-item button'));
-        beverageInfos.value = Array.from(document.querySelectorAll('.beverage-info'));
+            // Remove 'active' class from all beverageInfos
+            this.beverageInfos.forEach(info => info.classList.remove('active'));
 
-        buttons.value.forEach(button => {
-        button.addEventListener('click', toggleAccordion);
-        });
-    });
+            const targetId = button.id.replace('-btn', '-info');
+            const targetInfo = document.getElementById(targetId);
+            if (targetInfo) {
+                targetInfo.classList.add('active');
+            }
 
-    const toggleAccordion = (event) => {
-        const button = event.currentTarget;
+            // Remove 'active' class from all buttons
+            this.buttons.forEach(btn => btn.classList.remove('active'));
 
-        // Remove 'active' class from all beverageInfos
-        beverageInfos.value.forEach(info => info.classList.remove('active'));
-
-        const targetId = button.id.replace('-btn', '-info');
-        const targetInfo = document.getElementById(targetId);
-        if (targetInfo) {
-        targetInfo.classList.add('active');
+            button.classList.add('active');
         }
+    },
+    mounted() {
+        this.buttons = Array.from(document.querySelectorAll('.accordion-item button'));
+        this.beverageInfos = Array.from(document.querySelectorAll('.beverage-info'));
 
-        // Remove 'active' class from all buttons
-        buttons.value.forEach(btn => btn.classList.remove('active'));
-        
-        button.classList.add('active');
-    };
-
-    return {
-        buttons,
-        beverageInfos
-    };
+        this.buttons.forEach(button => {
+            button.addEventListener('click', this.toggleAccordion);
+        });
     }
 });
-
 app.mount('#products');
